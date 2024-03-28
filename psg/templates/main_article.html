@@ -3,5 +3,10 @@
 {% block content %}
 <div class="article">
     {% placeholder 'content' %}
+<div id="overlay" class="overlay" onclick="closeFullScreen()"></div>
+  <div id="fullscreen-image" class="fullscreen-image" onclick="closeFullScreen()">
+    <img id="fullscreen-img" class="fullscreen-img" src="" alt="Fullscreen Image">
+    <p>Kliknij aby zamknąć</p>
+  </div>
 </div>
 {% endblock content %}

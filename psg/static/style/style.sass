@@ -3,54 +3,171 @@
     padding: 0
     font-family: 'Open Sans', sans-serif
     font-size: 16px
+    box-sizing: border-box
+
 .container
     width: 100%
 
 $main_gray: #222
 $border_radius: 30px
-$nav_border_radius: 20px
+$border_radius_mini: 20px
+$nav_border_radius: 18px
+
+//utility
+p
+    margin: 10px 0
+h1
+    font-size: 30px
+    margin: 5px 0
+h2
+    font-size: 25px
+    margin: 5px 0
+h3
+    font-size: 20px
+    margin: 5px 0
+h4, h5, h6
+    margin: 5px 0
+    font-size: 18px
+ul, ol
+    padding-left: 16px
+table
+    border-collapse: collapse
+    tr
+        border-bottom: 1px solid #555
+    td
+        padding: 3px 5px
+        text-align: left
+
 
 .visible
     display: block
+
+//artykuł
+.article
+    width: 100%
+.nav-btn-active
+    position: absolute
+    top: 45
+    left: 0
+    z-index: 999
+    width: 100%
+    text-align: left
+.no-overflow
+    overflow: hidden
+
+nav
+    display: none
+    padding-top: 110px
+    width: 100%
+    height: 100%
+    position: absolute
+    z-index: 100
+    top: 0
+    left: 0
+    text-align: left
+    background-color: $main_gray
+    color: white
+    svg
+        display: none
+    a
+        text-decoration: none
+        color: white
+    ul
+        list-style: none
+        li
+            font-weight: bolder
+            font-size: 20px
+            a
+                font-weight: bolder
+                font-size: 20px
+            ul
+                li
+                    font-weight: normal
+                    font-size: 18px
+                    a
+                        font-weight: normal
+                        font-size: 18px
 //header
 #baner
     width: 100%
     display: flex
-    align-items: center
+    overflow: hidden
+    align-items: flex-start
 #left-header
+    height: 70px
+    width: 75px
+    margin-top: 28px
+    display: flex
+    align-items: center
     background-color: $main_gray
     border-radius: 0px $border_radius $border_radius 0px 
-#img-header
-    height: 160px
+    #nav-btn
+        background-color: $main_gray
+        margin: 7px
+        border: none
+        svg
+            height: 22px
+
 #right-header
+    flex: 1
+    height: 70px
+    padding: 15px 0 15px 25px
+    margin-top: 28px
+    line-height: 40px
+    font-size: 10px
     background-color: $main_gray
     border-radius: $border_radius 0px 0px $border_radius
     color: white
 
-//main page windows
+#img-header
+    height: 110px
+
+//main page windows    
 #main_page_windows
     display: flex
     flex-wrap: wrap
+    align-content: space-around
     gap: 20px
     padding: 20px
+    width: 100%
+    flex-shrink: 0
+
 .main_page_window_image
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
     object-fit: cover
-    border-radius: $border_radius $border_radius 0 0
+    border-radius: $border_radius
+
 .main_page_window_text
     color: white
     background-color: $main_gray
-    height: 60px
-    padding: 10px
+    opacity: 0.9
+    width: 100%
+    height: auto
+    padding: 12px 28px
     border-radius: 0 0 $border_radius $border_radius
+    position: absolute
+    bottom: 0
+    left: 0
+    p
+        margin: 0
 .main_page_window_title
     font-size: 20px
+    font-weight: bold
 .main_page_window
+    position: relative
+    height: 400px
+    width: 100% !important
     a
         text-decoration: none
 
 //article
 .article
-    padding: 20px 0
+    padding: 20px 15px
+    width: 100%
     *
         img
             max-width: 100%
@@ -58,9 +175,10 @@ $nav_border_radius: 20px
 
 //resolution
 .resolution
-    padding: 20px 0
+    padding: 20px 10px
     .title
         font-size: 23px
+        margin: 10px 0
     .date
         margin: 5px 0
     a
@@ -69,3 +187,72 @@ $nav_border_radius: 20px
         text-decoration: none
     a:hover
         text-decoration: underline 
+
+//mini-windows
+.mini-windows
+    display: flex
+    flex-direction: column
+    width: 100%
+    padding: 0 10px
+    gap: 15px
+    margin: 15px 0
+    .mini-window
+        border-radius: $border_radius_mini
+        position: relative
+        width: 100%
+        height: 300px
+        background-color: blue
+        img
+            border-radius: $border_radius_mini
+            padding: 0
+            width: 100%
+            height: 100%
+            position: absolute
+            top: 0
+            left: 0
+            object-fit:  cover
+        .mini-window-text
+            width: 100%
+            height: auto
+            min-height: 100px
+            padding: 10px
+            border-radius: 0 0 $border_radius_mini $border_radius_mini
+            position: absolute
+            bottom: 0
+            left: 0
+            background-color: $main_gray
+            opacity: 0.9
+            p
+                color: white
+
+//language-chooser
+.language-chooser
+    list-style-type: none
+    width: 80%
+    position: absolute
+    right: 5
+    top: 5
+    display: flex
+    justify-content: flex-end
+    img
+        width: 25px
+        border: 1px solid #888
+    li
+        padding-right: 10px
+        a
+            color: $main_gray
+            text-decoration: none
+
+//lilimages
+.images
+    display: flex
+    flex-direction: column
+    justify-content: center
+    img
+        width: 100%
+
+.fullscreen-image
+    display: none
+
+.overlay
+    display: none

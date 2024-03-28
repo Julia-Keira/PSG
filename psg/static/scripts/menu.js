@@ -9,6 +9,10 @@ function toggleClass(name, object){
 
 function nav(){
     navigation = document.getElementById("nav");
-    toggleClass("visible", navigation); 
+    navBtn = document.getElementById("nav-btn");
+    body = document.getElementsByTagName("body")
+    toggleClass("nav-btn-active", navBtn)
+    toggleClass("visible", navigation);
+    toggleClass("no-overflow", body[0])
 }
 

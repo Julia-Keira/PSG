@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+from decouple import config
+from distutils.command.config import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,8 +27,7 @@ SECRET_KEY = 'django-insecure-0h#7jn&=q9$j(xyu2=emr6b5#1b39bktc1ez1&(=)+c78_5wbz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -49,7 +50,8 @@ INSTALLED_APPS = [
     'djangocms_link',
     'djangocms_file',
     'djangocms_picture',
-    'psg'
+    'psg',
+    'parler'
 ]
 
 MIDDLEWARE = [
@@ -133,8 +135,33 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'pl'
 
 LANGUAGES = [
-    ('pl', 'Polish')
+    ('pl', 'Polski'),
+    ('en', 'English')
 ]
+
+CMS_LANGUAGES = {
+    'default':{
+        'public': True,
+        'hide_untranslated': False,
+        'redirect_on_fallback': True,
+    },
+    1:[
+        {
+            'code': 'pl',
+            'name': 'Polski',
+            'public': True,
+            'hide_untranslated': False,
+            'redirect_on_fallback': True,
+        },
+        {
+            'code': 'en',
+            'name': 'English',
+            'public': True,
+            'hide_untranslated': False,
+            'redirect_on_fallback': True,
+        }
+    ]
+}
 
 TIME_ZONE = 'Poland'
 

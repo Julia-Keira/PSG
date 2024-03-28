@@ -1,4 +1,4 @@
-{% load cms_tags sekizai_tags menu_tags cms_static %}
+{% load cms_tags i18n sekizai_tags menu_tags cms_static %}
 <html>
   <head>
     <title>{% page_attribute "page_title" %}</title>
@@ -13,22 +13,26 @@
       <link href="/static/style/responsive.min.css" media="screen" rel="stylesheet" type="text/css" />
     {% endaddtoblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div class="container"></div>
+    <div class="container">
     {% cms_toolbar %}
     <header>
       {% static_placeholder 'Header' %}
     </header>
     <nav id="nav" class="">
       <ul>
-        {% show_menu 0 100 100 100 %}
+        {% show_menu 0 100 100 100 "my_menu.html" %}
       </ul>
     </nav>
+  
       {% block content %}
       {% endblock content %}
+
     </div>
-    {% render_block "js" %}s
+    {% render_block "js" %}
     <script src="/static/scripts/menu.js"></script>
+    <script src="/static/scripts/image.js"></script>
   </body>
 </html>

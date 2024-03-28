@@ -1,55 +1,57 @@
 $main_gray: #222
 $border_radius: 30px
 $nav_border_radius: 20px
-@media (min-width: 1px)
-    //main page
-    .main_page_windows
-        width: 100%
-        min-height: 2000px !important
-        flex-shrink: 0
-    .main_page_window
-        height: 340px
-        width: 100% !important
-    .main_page_window_image
-        height: 270px
-        width: 100%
-        object-fit: cover
-    .main_page_window_text
-        color: white
-        height: 60px
-        padding: 10px
-    .main_page_window_title
-        font-size: 20px
-    #left-header
-        width: 13%
-        height: 80px
-        display: flex
-        align-items: center
-        #nav-btn
-            background-color: $main_gray
-            margin: 7px
-            border: none
+//@media only screen and (min-width: 1px)
 
-    #right-header
-        width: 78%
-        height: 50px
-        padding: 15px
-        line-height: 47px
-        font-size: 30px
-    //artykuł
-    .article
-        width: 100%
-    nav
-        display: none
-    
+        
 // Small devices (landscape phones, 576px and up)
-//@media (min-width: 576px)
-
+@media only screen and (min-width: 576px)
+    .main_page_window_text
+        p
+            font-size: 14px
+    .main_page_window_title
+        font-size: 16px !important
+        
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px)
+    .images
+        flex-direction: row
+        img
+            max-width: 300px
+            max-height: 400px
+            object-fit: scale-down
+    .overlay
+        display: none
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: $main_gray
+        z-index: 999
+
+    .fullscreen-image 
+        display: none
+        position: fixed
+        padding: 150px
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: 1000
+        overflow: auto
+        p
+            color: white
+            padding-left: 10px
+    .fullscreen-image-visible
+        display: block !important
+    .fullscreen-img 
+        display: block
+        margin: auto
+        max-width: 100%
+        max-height: 100%
     //main_page
     #main_page_windows
-        min-height: 700px
         padding: 20px
     .main_page_window
         height: 300px
@@ -58,14 +60,11 @@ $nav_border_radius: 20px
     .main_page_window:nth-child(3)
         width: 58% !important
     .main_page_window_image
-        height: 270px
+        height: 100%
         width: 100%
     .main_page_window:hover
         .main_page_window_image
             width: 100%
-    .main_page_window_text
-        height: 60px
-        padding: 10px
     .main_page_window_title
         font-size: 20px
     //artykuł
@@ -73,57 +72,85 @@ $nav_border_radius: 20px
         width: 80%
         margin: 0 auto
     //nav
-nav
-    padding: 10px
-    width: 100%
-    overflow: hidden
-    a
-        color: black
-        text-decoration: none
-        font-size: 19px
-    ul
-        display: flex
-        list-style: none
-        li
-            width: 150px
-            padding: 10px
-            text-align: center
-            overflow: hidden
-    li ul
+    #nav-btn
         display: none
-        list-style: none
-        position: absolute
-        left: 180px
-    li:hover 
-        background-color: $main_gray
-        padding: 10px 10px 0 10px
-        border-radius: $nav_border_radius  $nav_border_radius 0 0
+    
+    .nav-chevron
+        display: inline-block
+
+    nav
+        display: block
+        padding: 10px
+        width: 100%
+        position: relative
+        height: 60px
+        background-color: white
+        z-index: 999
+        color: $main_gray
+        svg
+            position: relative
+            fill: $main_gray
+            top: 3px
+            width: 20px
         a
-            color: white
+            color: black
+            text-decoration: none
+            font-size: 19px
         ul
-            display: flex       
-            flex-direction: column
-            background-color: $main_gray
-            width: 200px
-            padding: 10px
-            border-radius: 0  $nav_border_radius $nav_border_radius $nav_border_radius
+            display: flex
+            justify-content: flex-start
+            list-style: none
             li
-                padding: 10px
-                border-radius: $nav_border_radius
+                padding: 12px 0
+                width: 220px
+                text-align: center
+                ul
+                    li
+                        text-align: left
+        li ul
+            display: none
+            list-style: none
+            position: relative
+        li:hover 
+            background-color: $main_gray
+            border-radius: $nav_border_radius
+            padding: 12px 0 0 0
+            color: white
+            svg
+                fill: #FFF
             a
                 color: white
+            ul
+                display: flex       
+                flex-direction: column
+                width: 300px
+                background-color: $main_gray
+                border-radius: 0  $nav_border_radius $nav_border_radius $nav_border_radius
+                li
+                    width: 100%
+                    border-radius: $nav_border_radius
+                    padding: 12px 0
+                a
+                    color: white
+    #left-header
+        width: 40px
+
+    #right-header
+        font-size: 30px
+    
 
 // Large devices (desktops, 992px and up)
 //@media (min-width: 992px)
-
+    
 // X-Large devices (large desktops, 1200px and up)
 @media (min-width: 1200px)
-    //main_page
-    #right-header
-        width: 78%
-        height: 50px
-        padding: 15px
-        line-height: 47px
-        font-size: 60px
+    .mini-windows
+        flex-direction: row
+        .mini-window
+            .mini-window-text
+                padding: 10px 20px
+
+
+
 // XX-Large devices (larger desktops, 1400px and up)
 //@media (min-width: 1400px)
